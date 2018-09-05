@@ -1,7 +1,8 @@
 import { SIGN_IN, SIGN_OUT} from './types'
+import { SERVER_URL } from '../utils/config'
 
 export const getAuthen = (user,pass) => dispatch => {
-  fetch('http://localhost:5000/signin',{
+  fetch(`${SERVER_URL}/signin`,{
     method: 'POST',
     headers: {
       'Accept': 'application/json',

@@ -1,7 +1,8 @@
 import { FETCH_PRODUCTS , DELETE_PRODUCT, CREATE_PRODUCT, UPDATE_PRODUCT} from './types'
+import { SERVER_URL } from '../utils/config'
 
 export const fetchProducts = () => dispatch => {
-  fetch('http://localhost:5000/api/product/get')
+  fetch(`${SERVER_URL}/api/product/get`)
     .then(res => res.json())
     .then(data => 
       dispatch({
@@ -13,7 +14,7 @@ export const fetchProducts = () => dispatch => {
 };
 
 export const createProduct = (name,price) => dispatch => {
-  fetch('http://localhost:5000/api/product/new', {
+  fetch(`${SERVER_URL}/api/product/new`, {
     method: 'POST',
     headers: {
       'Accept': 'application/json',
@@ -36,7 +37,7 @@ export const createProduct = (name,price) => dispatch => {
 }
 
 export const updateProduct = (id, name, price) => dispatch => {
-  fetch('http://localhost:5000/api/product/update/' + id, {
+  fetch(`${SERVER_URL}/api/product/update/${id}`, {
     method: 'PUT',
     headers: {
       'Accept': 'application/json',
@@ -63,7 +64,7 @@ export const updateProduct = (id, name, price) => dispatch => {
 }
 
 export const deleteProduct = (id) => dispatch => {
-  fetch('http://localhost:5000/api/product/delete/' + id, {
+  fetch(`${SERVER_URL}/api/product/delete/${id}`, {
   method: 'DELETE',
   headers: {
     'Accept': 'application/json',
